@@ -10,36 +10,39 @@ import com.mballen.curso.boot.dao.FuncionarioDao;
 import com.mballen.curso.boot.domain.Funcionario;
 
 @Service @Transactional(readOnly = true)
-public class FuncionarioServiceImpl  implements FuncionarioDao{
+public class FuncionarioServiceImpl  implements FuncionarioService{
 	
 	@Autowired
 	private FuncionarioDao dao;
 	
 	@Transactional(readOnly = false)
 	@Override
-	public void save(Funcionario funcionario) {
+	public void salvar(Funcionario funcionario) {
 		dao.save(funcionario);
+		
 	}
-	
+
 	@Transactional(readOnly = false)
 	@Override
-	public void update(Funcionario funcionario) {
+	public void editar(Funcionario funcionario) {
 		dao.update(funcionario);
+		
 	}
-	
+
 	@Transactional(readOnly = false)
 	@Override
-	public void delete(Long id) {
+	public void excluir(Long id) {
 		dao.delete(id);
+		
 	}
-	
+
 	@Override
-	public Funcionario findById(Long id) {
+	public Funcionario buscarPorId(Long id) {	
 		return dao.findById(id);
 	}
 
 	@Override
-	public List<Funcionario> findAll() {
+	public List<Funcionario> buscarTodos() {
 		return dao.findAll();
 	}
 
