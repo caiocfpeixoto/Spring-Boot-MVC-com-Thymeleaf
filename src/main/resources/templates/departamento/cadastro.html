@@ -27,6 +27,9 @@ layout:decorate="~{Layout}">
 	        	
 	            <form th:action="${departamento.id == null} ? @{/departamentos/salvar} : @{/departamentos/editar}"  
 	            	  th:object="${departamento}"  method="POST">
+	                <!-- Este fragmento deve ficar dentro da classe form, caso contrário ele não mostrará a mensagem na tela-->
+	                <div th:replace="fragments/validacao :: validacao"></div>
+	                
 	                <div class="form-row">
 	                    <div class="form-group col-md-6">
 	                        <label for="nome">Departamento</label>
